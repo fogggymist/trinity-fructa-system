@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Accounts - Trinity Fructa IMS</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <h1>Trinity Fructa</h1>
+            <p>Inventory Management System</p>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><span class="icon">📊</span>Dashboard</a></li>
+            <li><a href="rawmaterials.html"><span class="icon">📦</span>Raw Materials</a></li>
+            <li><a href="finishedgoods.html"><span class="icon">🧃</span>Finished Goods</a></li>
+            <li><a href="purchaseorders.html"><span class="icon">🛒</span>Purchase Orders</a></li>
+            <li><a href="suppliers.html"><span class="icon">🚚</span>Suppliers</a></li>
+            <li><a href="production.html"><span class="icon">🏭</span>Production</a></li>
+            <li><a href="dispatch.html"><span class="icon">📤</span>Dispatch</a></li>
+            <li><a href="accounts.html" class="active"><span class="icon">💰</span>Accounts</a></li>
+            <li><a href="reports.html"><span class="icon">📈</span>Reports</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            Trinity Fructa Pvt. Ltd. © 2026
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="topbar">
+            <div>
+                <h2>Accounts</h2>
+                <p>Manage material prices and supplier invoices</p>
+            </div>
+        </div>
+        <div class="container">
+
+            <div class="form-box">
+                <h3>Add Price Record</h3>
+                <div id="message"></div>
+                <div class="form-group">
+                    <label>Material</label>
+                    <select id="accMaterial">
+                        <option value="">-- Select Material --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Invoice Number</label>
+                    <input type="text" id="accInvoice" placeholder="e.g. INV001">
+                </div>
+                <div class="form-group">
+                    <label>Price (₹)</label>
+                    <input type="number" id="accPrice" placeholder="e.g. 5000">
+                </div>
+                <button onclick="addRecord()">Add Record</button>
+            </div>
+
+            <p class="section-title">Price Records</p>
+            <div class="table-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Material</th>
+                            <th>Invoice No</th>
+                            <th>Price (₹)</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="accountsTable">
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="../js/accounts.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Raw Materials - Trinity Fructa IMS</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <h1>Trinity Fructa</h1>
+            <p>Inventory Management System</p>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><span class="icon">📊</span>Dashboard</a></li>
+            <li><a href="rawmaterials.html" class="active"><span class="icon">📦</span>Raw Materials</a></li>
+            <li><a href="finishedgoods.html"><span class="icon">🧃</span>Finished Goods</a></li>
+            <li><a href="purchaseorders.html"><span class="icon">🛒</span>Purchase Orders</a></li>
+            <li><a href="suppliers.html"><span class="icon">🚚</span>Suppliers</a></li>
+            <li><a href="production.html"><span class="icon">🏭</span>Production</a></li>
+            <li><a href="dispatch.html"><span class="icon">📤</span>Dispatch</a></li>
+            <li><a href="accounts.html"><span class="icon">💰</span>Accounts</a></li>
+            <li><a href="reports.html"><span class="icon">📈</span>Reports</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            Trinity Fructa Pvt. Ltd. © 2026
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="topbar">
+            <div>
+                <h2>Raw Materials</h2>
+                <p>Confirm incoming deliveries and view current stock</p>
+            </div>
+        </div>
+        <div class="container">
+
+            <!-- pending orders waiting to be received -->
+            <p class="section-title">📬 Incoming Deliveries</p>
+            <p style="color:#888; font-size:13px; margin-bottom:15px">These are purchase orders waiting to be confirmed as received</p>
+            <div class="table-box" style="margin-bottom:30px">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Supplier</th>
+                            <th>Material</th>
+                            <th>Quantity</th>
+                            <th>Unit</th>
+                            <th>Batch</th>
+                            <th>Expiry Date</th>
+                            <th>Expected Delivery</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pendingOrdersTable">
+                    </tbody>
+                </table>
+            </div>
+            <p class="section-title">📦 Current Stock</p>
+            <div class="table-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Unit</th>
+                            <th>Quantity</th>
+                            <th>Batch No</th>
+                            <th>Expiry Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="materialsTable">
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="../js/rawmaterials.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dispatch - Trinity Fructa IMS</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <div class="sidebar">
+    <div class="sidebar-logo">
+      <h1>Trinity Fructa</h1>
+      <p>Inventory Management System</p>
+    </div>
+
+    <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><span class="icon">📊</span>Dashboard</a></li>
+            <li><a href="rawmaterials.html"><span class="icon">📦</span>Raw Materials</a></li>
+            <li><a href="finishedgoods.html"><span class="icon">🧃</span>Finished Goods</a></li>
+            <li><a href="purchaseorders.html"><span class="icon">🛒</span>Purchase Orders</a></li>
+            <li><a href="suppliers.html"><span class="icon">🚚</span>Suppliers</a></li>
+            <li><a href="production.html"><span class="icon">🏭</span>Production</a></li>
+            <li><a href="dispatch.html" class="active"><span class="icon">📤</span> Dispatch</a></li>
+            <li><a href="accounts.html"><span class="icon">💰</span>Accounts</a></li>
+            <li><a href="reports.html"><span class="icon">📈</span>Reports</a></li>
+    </ul>
+
+    <div class="sidebar-footer">
+      Trinity Fructa Pvt. Ltd. © 2026
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div>
+        <h2>Dispatch</h2>
+        <p>Approve production material requests and dispatch finished goods</p>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div id="dispatchFormContainer" style="display:none">
+        <div class="form-box" style="max-width:500px">
+          <h3>Finished Product Dispatch Details</h3>
+
+          <div id="dispatchMessage"></div>
+
+          <input type="hidden" id="dispatchProductId">
+          <input type="hidden" id="availableQuantity">
+
+          <div class="form-group">
+            <label>Dispatch Quantity</label>
+            <input type="number" id="dispatchQuantity" min="1" placeholder="Enter quantity">
+            <small id="maxQuantityText" style="color:#777"></small>
+          </div>
+
+          <div class="form-group">
+            <label>Truck Number</label>
+            <input type="text" id="truckNumber" placeholder="e.g. AS01AB1234">
+          </div>
+
+          <div class="form-group">
+            <label>Driver Name</label>
+            <input type="text" id="driverName" placeholder="e.g. Raju Das">
+          </div>
+
+          <div class="form-group">
+            <label>Loadout Condition</label>
+            <select id="loadoutCondition">
+              <option value="">-- Select Condition --</option>
+              <option value="Good">Good</option>
+              <option value="Partial">Partial</option>
+              <option value="Damaged">Damaged</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Notes</label>
+            <input type="text" id="dispatchNotes" placeholder="Any additional notes">
+          </div>
+
+          <div style="display:flex; gap:10px">
+            <button type="button" onclick="submitDispatch()">Confirm Dispatch</button>
+            <button type="button" class="btn-danger" onclick="hideDispatchForm()">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <p class="section-title">Production Material Requests</p>
+      <p style="color:#888; font-size:13px; margin-bottom:15px">
+        Approve raw material requests from the production department
+      </p>
+
+      <div class="table-box" style="margin-bottom:30px">
+        <table>
+          <thead>
+            <tr>
+              <th>Request ID</th>
+              <th>Material</th>
+              <th>Quantity</th>
+              <th>Date Required</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="pendingTable"></tbody>
+        </table>
+      </div>
+
+      <p class="section-title">Finished Products Ready for Dispatch</p>
+      <p style="color:#888; font-size:13px; margin-bottom:15px">
+        Dispatch finished products after production has updated finished goods
+      </p>
+
+      <div class="table-box">
+        <table>
+          <thead>
+            <tr>
+              <th>Product ID</th>
+              <th>Product Name</th>
+              <th>Batch No</th>
+              <th>Quantity Available</th>
+              <th>Unit</th>
+              <th>Mfg Date</th>
+              <th>Expiry Date</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="dispatchedTable"></tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../js/dispatch.js"></script>
+</body>
+</html>

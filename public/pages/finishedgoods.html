@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Finished Goods - Trinity Fructa IMS</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <h1>Trinity Fructa</h1>
+            <p>Inventory Management System</p>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><span class="icon">📊</span>Dashboard</a></li>
+            <li><a href="rawmaterials.html"><span class="icon">📦</span>Raw Materials</a></li>
+            <li><a href="finishedgoods.html" class="active"><span class="icon">🧃</span>Finished Goods</a></li>
+            <li><a href="purchaseorders.html"><span class="icon">🛒</span>Purchase Orders</a></li>
+            <li><a href="suppliers.html"><span class="icon">🚚</span>Suppliers</a></li>
+            <li><a href="production.html"><span class="icon">🏭</span>Production</a></li>
+            <li><a href="dispatch.html"><span class="icon">📤</span>Dispatch</a></li>
+            <li><a href="accounts.html"><span class="icon">💰</span>Accounts</a></li>
+            <li><a href="reports.html"><span class="icon">📈</span>Reports</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            Trinity Fructa Pvt. Ltd. © 2026
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="topbar">
+            <div>
+                <h2>Finished Goods</h2>
+                <p>Track manufactured products and their stock</p>
+            </div>
+        </div>
+        <div class="container">
+
+            <div class="form-box">
+                <h3>Add Finished Product</h3>
+                <div id="message"></div>
+                <div class="form-group">
+                    <label>Product Name</label>
+                    <input type="text" id="prodName" placeholder="e.g. Mango Juice 200ml">
+                </div>
+                <div class="form-group">
+                    <label>Batch Number</label>
+                    <input type="text" id="prodBatch" placeholder="e.g. FG-BATCH001">
+                </div>
+                <div class="form-group">
+                    <label>Unit</label>
+                    <select id="prodUnit">
+                        <option value="">-- Select Unit --</option>
+                        <option value="units">Units</option>
+                        <option value="boxes">Boxes</option>
+                        <option value="packets">Packets</option>
+                        <option value="dozen">Dozen</option>
+                        <option value="kg">kg</option>
+                        <option value="litres">Litres</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Quantity Produced</label>
+                    <input type="number" id="prodQty" placeholder="e.g. 500">
+                </div>
+                <div class="form-group">
+                    <label>Manufacturing Date</label>
+                    <input type="date" id="prodMfgDate">
+                </div>
+                <div class="form-group">
+                    <label>Expiry Date</label>
+                    <input type="date" id="prodExpiry">
+                </div>
+                <button onclick="addProduct()">Add Product</button>
+            </div>
+
+            <p class="section-title">Finished Goods Stock</p>
+            <div class="table-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Product Name</th>
+                            <th>Batch No</th>
+                            <th>Unit</th>
+                            <th>Quantity</th>
+                            <th>Mfg Date</th>
+                            <th>Expiry Date</th>
+                            <th>Shelf Life</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="finishedGoodsTable">
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="../js/finishedgoods.js"></script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Purchase Orders - Trinity Fructa IMS</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <h1>Trinity Fructa</h1>
+            <p>Inventory Management System</p>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><span class="icon">📊</span>Dashboard</a></li>
+            <li><a href="rawmaterials.html"><span class="icon">📦</span>Raw Materials</a></li>
+            <li><a href="finishedgoods.html"><span class="icon">🧃</span>Finished Goods</a></li>
+            <li><a href="purchaseorders.html" class="active"><span class="icon">🛒</span>Purchase Orders</a></li>
+            <li><a href="suppliers.html"><span class="icon">🚚</span>Suppliers</a></li>
+            <li><a href="production.html"><span class="icon">🏭</span>Production</a></li>
+            <li><a href="dispatch.html"><span class="icon">📤</span>Dispatch</a></li>
+            <li><a href="accounts.html"><span class="icon">💰</span>Accounts</a></li>
+            <li><a href="reports.html"><span class="icon">📈</span>Reports</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            Trinity Fructa Pvt. Ltd. © 2026
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="topbar">
+            <div>
+                <h2>Purchase Orders</h2>
+                <p>Place and track raw material orders from suppliers</p>
+            </div>
+        </div>
+        <div class="container">
+
+            <div class="form-box" style="max-width:600px">
+                <h3>Place New Purchase Order</h3>
+                <div id="message"></div>
+
+                <div class="form-group">
+                    <label>Material Type</label>
+                    <div style="display:flex; gap:15px; margin-top:5px">
+                        <label style="display:flex; align-items:center; gap:5px; font-weight:normal; cursor:pointer">
+                            <input type="radio" name="matType" value="existing" checked onclick="toggleMaterialType('existing')">
+                            Existing Material
+                        </label>
+                        <label style="display:flex; align-items:center; gap:5px; font-weight:normal; cursor:pointer">
+                            <input type="radio" name="matType" value="new" onclick="toggleMaterialType('new')">
+                            New Material
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group" id="existingMaterialGroup">
+                    <label>Select Material</label>
+                    <select id="poMaterial">
+                        <option value="">-- Select Material --</option>
+                    </select>
+                </div>
+
+                <div id="newMaterialGroup" style="display:none">
+                    <div class="form-group">
+                        <label>Material Name</label>
+                        <input type="text" id="poNewMatName" placeholder="e.g. Raw Mango">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Supplier</label>
+                    <select id="poSupplier">
+                        <option value="">-- Select Supplier --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Quantity</label>
+                    <input type="number" id="poQty" placeholder="e.g. 100">
+                </div>
+                <div class="form-group">
+                    <label>Unit</label>
+                    <select id="poUnit">
+                        <option value="">-- Select Unit --</option>
+                        <option value="kg">kg (Kilograms)</option>
+                        <option value="g">g (Grams)</option>
+                        <option value="tonnes">Tonnes</option>
+                        <option value="litres">Litres</option>
+                        <option value="ml">ml (Millilitres)</option>
+                        <option value="units">Units</option>
+                        <option value="packets">Packets</option>
+                        <option value="boxes">Boxes</option>
+                        <option value="bags">Bags</option>
+                        <option value="dozen">Dozen</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Batch Number</label>
+                    <input type="text" id="poBatch" placeholder="e.g. BATCH001">
+                </div>
+                <div class="form-group">
+                    <label>Manufacturing Date</label>
+                    <input type="date" id="poMfgDate">
+                </div>
+                <div class="form-group">
+                    <label>Expiry Date</label>
+                    <input type="date" id="poExpiry">
+                </div>
+                <div class="form-group">
+                    <label>Expected Delivery Date</label>
+                    <input type="date" id="poDelivery">
+                </div>
+                <div class="form-group">
+                    <label>Notes (optional)</label>
+                    <input type="text" id="poNotes" placeholder="e.g. urgent order">
+                </div>
+                <button onclick="placeOrder()">Place Order</button>
+            </div>
+
+            <p class="section-title">All Purchase Orders</p>
+            <div class="table-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Supplier</th>
+                            <th>Material</th>
+                            <th>Qty</th>
+                            <th>Unit</th>
+                            <th>Batch</th>
+                            <th>Expiry</th>
+                            <th>Expected Delivery</th>
+                            <th>Actual Delivery</th>
+                            <th>Notes</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersTable">
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="../js/purchaseorders.js"></script>
+</body>
+</html>

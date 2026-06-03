@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Suppliers - Trinity Fructa IMS</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <h1>Trinity Fructa</h1>
+            <p>Inventory Management System</p>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><span class="icon">📊</span>Dashboard</a></li>
+            <li><a href="rawmaterials.html"><span class="icon">📦</span>Raw Materials</a></li>
+            <li><a href="finishedgoods.html"><span class="icon">🧃</span>Finished Goods</a></li>
+            <li><a href="purchaseorders.html"><span class="icon">🛒</span>Purchase Orders</a></li>
+            <li><a href="suppliers.html" class="active"><span class="icon">🚚</span>Suppliers</a></li>
+            <li><a href="production.html"><span class="icon">🏭</span>Production</a></li>
+            <li><a href="dispatch.html"><span class="icon">📤</span>Dispatch</a></li>
+            <li><a href="accounts.html"><span class="icon">💰</span>Accounts</a></li>
+            <li><a href="reports.html"><span class="icon">📈</span>Reports</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            Trinity Fructa Pvt. Ltd. © 2026
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="topbar">
+            <div>
+                <h2>Suppliers</h2>
+                <p>Manage suppliers for Trinity Fructa</p>
+            </div>
+        </div>
+        <div class="container">
+
+            <div class="form-box">
+                <h3>Add New Supplier</h3>
+                <div id="message"></div>
+                <div class="form-group">
+                    <label>Supplier Name</label>
+                    <input type="text" id="supName" placeholder="e.g. ABC Traders">
+                </div>
+                <div class="form-group">
+                    <label>Contact Number</label>
+                    <input type="text" id="supContact" placeholder="e.g. 9876543210">
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <input type="text" id="supAddress" placeholder="e.g. Mangaldai, Assam">
+                </div>
+                <button onclick="addSupplier()">Add Supplier</button>
+            </div>
+
+            <p class="section-title">Current Suppliers</p>
+            <div class="table-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Contact</th>
+                            <th>Address</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="suppliersTable">
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="../js/suppliers.js"></script>
+</body>
+</html>

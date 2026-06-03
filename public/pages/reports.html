@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reports - Trinity Fructa IMS</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <h1>Trinity Fructa</h1>
+            <p>Inventory Management System</p>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><span class="icon">📊</span>Dashboard</a></li>
+            <li><a href="rawmaterials.html"><span class="icon">📦</span>Raw Materials</a></li>
+            <li><a href="finishedgoods.html"><span class="icon">🧃</span>Finished Goods</a></li>
+            <li><a href="purchaseorders.html"><span class="icon">🛒</span>Purchase Orders</a></li>
+            <li><a href="suppliers.html"><span class="icon">🚚</span>Suppliers</a></li>
+            <li><a href="production.html"><span class="icon">🏭</span>Production</a></li>
+            <li><a href="dispatch.html"><span class="icon">📤</span>Dispatch</a></li>
+            <li><a href="accounts.html"><span class="icon">💰</span>Accounts</a></li>
+            <li><a href="reports.html" class="active"><span class="icon">📈</span>Reports</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            Trinity Fructa Pvt. Ltd. © 2026
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="topbar">
+            <div>
+                <h2>Reports</h2>
+                <p>View inventory and production reports</p>
+            </div>
+        </div>
+        <div class="container">
+
+            <div class="charts-row">
+                <div class="chart-box">
+                    <h3>Stock Levels</h3>
+                    <canvas id="stockChart"></canvas>
+                </div>
+                <div class="chart-box">
+                    <h3>Production Request Status</h3>
+                    <canvas id="productionChart"></canvas>
+                </div>
+                <div class="chart-box">
+                    <h3>Expiry Status</h3>
+                    <canvas id="expiryChart"></canvas>
+                </div>
+            </div>
+
+            <div class="report-buttons">
+                <button onclick="showReport('stock')">Stock Report</button>
+                <button onclick="showReport('lowstock')">Low Stock Report</button>
+                <button onclick="showReport('production')">Production Report</button>
+                <button onclick="showReport('finishedgoods')">Finished Goods Report</button>
+            </div>
+
+            <h3 id="reportTitle" class="section-title"></h3>
+            <div class="table-box" id="reportContainer"></div>
+
+        </div>
+    </div>
+
+    <script src="../js/reports.js"></script>
+</body>
+</html>

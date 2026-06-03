@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Trinity Fructa IMS</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <h1>Trinity Fructa</h1>
+            <p>Inventory Management System</p>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html" class="active"><span class="icon">📊</span>Dashboard</a></li>
+            <li><a href="rawmaterials.html"><span class="icon">📦</span>Raw Materials</a></li>
+            <li><a href="finishedgoods.html"><span class="icon">🧃</span>Finished Goods</a></li>
+            <li><a href="purchaseorders.html"><span class="icon">🛒</span>Purchase Orders</a></li>
+            <li><a href="suppliers.html"><span class="icon">🚚</span>Suppliers</a></li>
+            <li><a href="production.html"><span class="icon">🏭</span>Production</a></li>
+            <li><a href="dispatch.html"><span class="icon">📤</span>Dispatch</a></li>
+            <li><a href="accounts.html"><span class="icon">💰</span>Accounts</a></li>
+            <li><a href="reports.html"><span class="icon">📈</span>Reports</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            Trinity Fructa Pvt. Ltd. © 2026
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="topbar">
+            <div>
+                <h2>Dashboard</h2>
+                <p>Welcome to the Inventory Management System</p>
+            </div>
+        </div>
+        <div class="container">
+
+            <div class="cards">
+                <a href="rawmaterials.html" class="card-link">
+                    <div class="card card-blue">
+                        <h3>Total Materials</h3>
+                        <p id="totalMaterials">...</p>
+                    </div>
+                </a>
+                <a href="reports.html" class="card-link">
+                    <div class="card card-red">
+                        <h3>Low Stock Items</h3>
+                        <p id="lowStock">...</p>
+                    </div>
+                </a>
+                <a href="production.html" class="card-link">
+                    <div class="card card-orange">
+                        <h3>Pending Requests</h3>
+                        <p id="pendingRequests">...</p>
+                    </div>
+                </a>
+                <a href="finishedgoods.html" class="card-link">
+                    <div class="card card-green">
+                        <h3>Finished Products</h3>
+                        <p id="totalFinished">...</p>
+                    </div>
+                </a>
+            </div>
+
+            <p class="section-title">Current Stock</p>
+            <div class="table-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Material Name</th>
+                            <th>Unit</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody id="stockTable">
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>
