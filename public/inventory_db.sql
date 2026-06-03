@@ -1,31 +1,10 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: May 05, 2026 at 03:33 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `inventory_db`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `accounts`
---
 
 CREATE TABLE `accounts` (
   `account_id` int(11) NOT NULL,
@@ -34,9 +13,7 @@ CREATE TABLE `accounts` (
   `price` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `accounts`
---
+
 
 INSERT INTO `accounts` (`account_id`, `mat_id`, `invoice_no`, `price`) VALUES
 (2, 12, 'INV001', 4500.00),
@@ -46,11 +23,7 @@ INSERT INTO `accounts` (`account_id`, `mat_id`, `invoice_no`, `price`) VALUES
 (6, 16, 'INV005', 15000.00),
 (7, 17, 'INV006', 6000.00);
 
--- --------------------------------------------------------
 
---
--- Table structure for table `finished_goods`
---
 
 CREATE TABLE `finished_goods` (
   `product_id` int(11) NOT NULL,
@@ -63,9 +36,7 @@ CREATE TABLE `finished_goods` (
   `status` varchar(20) DEFAULT 'in stock'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `finished_goods`
---
+
 
 INSERT INTO `finished_goods` (`product_id`, `product_name`, `batch_number`, `manufacturing_date`, `expiry_date`, `quantity`, `unit`, `status`) VALUES
 (1, 'Mango Juice 200ml', 'FG-BATCH001', '2026-04-01', '2026-10-01', 500, 'units', 'in stock'),
@@ -80,11 +51,6 @@ INSERT INTO `finished_goods` (`product_id`, `product_name`, `batch_number`, `man
 (10, 'Mixed Fruit Punch 200ml', 'FG-BATCH010', '2026-04-25', '2026-10-25', 300, 'units', 'in stock'),
 (11, 'Guava Nectar 500ml', 'FG-BATCH011', '2026-03-01', '2026-05-08', 40, 'units', 'in stock');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `production`
---
 
 CREATE TABLE `production` (
   `request_id` int(11) NOT NULL,
@@ -99,9 +65,7 @@ CREATE TABLE `production` (
   `dispatch_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `production`
---
+
 
 INSERT INTO `production` (`request_id`, `mat_id`, `quantity_requested`, `date`, `status`, `truck_number`, `driver_name`, `loadout_condition`, `dispatch_notes`, `dispatch_date`) VALUES
 (2, 12, 50, '2026-05-01', 'dispatched', 'AS01AB1234', 'Raju Das', 'Good', 'Delivered on time', '2026-05-01'),
@@ -113,11 +77,7 @@ INSERT INTO `production` (`request_id`, `mat_id`, `quantity_requested`, `date`, 
 (8, 13, 25, '2026-05-07', 'approved', NULL, NULL, NULL, NULL, NULL),
 (9, 17, 60, '2026-05-08', 'pending', NULL, NULL, NULL, NULL, NULL);
 
--- --------------------------------------------------------
 
---
--- Table structure for table `purchase_orders`
---
 
 CREATE TABLE `purchase_orders` (
   `order_id` int(11) NOT NULL,
@@ -135,9 +95,6 @@ CREATE TABLE `purchase_orders` (
   `expiry_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `purchase_orders`
---
 
 INSERT INTO `purchase_orders` (`order_id`, `supplier_id`, `mat_id`, `quantity_ordered`, `unit`, `expected_delivery`, `actual_delivery`, `status`, `notes`, `new_material_name`, `batch_number`, `manufacturing_date`, `expiry_date`) VALUES
 (1, 3, 12, 200, 'kg', '2026-05-10', '2026-05-09', 'received', 'Regular monthly order', NULL, 'BATCH009', '2026-05-01', '2027-05-01'),
@@ -148,11 +105,7 @@ INSERT INTO `purchase_orders` (`order_id`, `supplier_id`, `mat_id`, `quantity_or
 (6, 6, 16, 20, 'kg', '2026-05-08', '2026-05-08', 'received', 'Restock', NULL, 'BATCH014', '2026-04-01', '2026-10-01'),
 (7, 4, 18, 500, 'ml', '2026-05-25', NULL, 'cancelled', NULL, NULL, 'BATCH015', '2026-05-10', '2026-11-10');
 
--- --------------------------------------------------------
 
---
--- Table structure for table `raw_material`
---
 
 CREATE TABLE `raw_material` (
   `mat_id` int(11) NOT NULL,
@@ -165,9 +118,6 @@ CREATE TABLE `raw_material` (
   `expiry_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `raw_material`
---
 
 INSERT INTO `raw_material` (`mat_id`, `name`, `unit`, `quantity`, `supplier_id`, `batch_number`, `manufacturing_date`, `expiry_date`) VALUES
 (12, 'Sugar', 'kg', 150, 3, 'BATCH001', '2026-01-01', '2027-01-01'),
@@ -179,11 +129,7 @@ INSERT INTO `raw_material` (`mat_id`, `name`, `unit`, `quantity`, `supplier_id`,
 (18, 'Fruit Essence', 'ml', 45, 4, 'BATCH007', '2026-01-10', '2026-07-10'),
 (19, 'Glass Bottles', 'units', 1000, 5, 'BATCH008', '2026-01-01', '2028-01-01');
 
--- --------------------------------------------------------
 
---
--- Table structure for table `reports`
---
 
 CREATE TABLE `reports` (
   `report_id` int(11) NOT NULL,
@@ -192,11 +138,6 @@ CREATE TABLE `reports` (
   `generated_by` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `supplier`
---
 
 CREATE TABLE `supplier` (
   `supplier_id` int(11) NOT NULL,
@@ -205,9 +146,6 @@ CREATE TABLE `supplier` (
   `address` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `supplier`
---
 
 INSERT INTO `supplier` (`supplier_id`, `name`, `contact`, `address`) VALUES
 (3, 'Assam Agro Traders', '9854012345', 'Guwahati, Assam'),
@@ -216,133 +154,80 @@ INSERT INTO `supplier` (`supplier_id`, `name`, `contact`, `address`) VALUES
 (6, 'Bengal Chemical Traders', '9331098765', 'Kolkata, West Bengal'),
 (7, 'Deka & Sons Trading', '9864532100', 'Darrang, Assam');
 
---
--- Indexes for dumped tables
---
 
---
--- Indexes for table `accounts`
---
 ALTER TABLE `accounts`
   ADD PRIMARY KEY (`account_id`),
   ADD KEY `mat_id` (`mat_id`);
 
---
--- Indexes for table `finished_goods`
---
+
 ALTER TABLE `finished_goods`
   ADD PRIMARY KEY (`product_id`);
 
---
--- Indexes for table `production`
---
+
 ALTER TABLE `production`
   ADD PRIMARY KEY (`request_id`),
   ADD KEY `mat_id` (`mat_id`);
 
---
--- Indexes for table `purchase_orders`
---
 ALTER TABLE `purchase_orders`
   ADD PRIMARY KEY (`order_id`),
   ADD KEY `supplier_id` (`supplier_id`),
   ADD KEY `mat_id` (`mat_id`);
 
---
--- Indexes for table `raw_material`
---
+
 ALTER TABLE `raw_material`
   ADD PRIMARY KEY (`mat_id`),
   ADD KEY `supplier_id` (`supplier_id`);
 
---
--- Indexes for table `reports`
---
+
 ALTER TABLE `reports`
   ADD PRIMARY KEY (`report_id`);
 
---
--- Indexes for table `supplier`
---
 ALTER TABLE `supplier`
   ADD PRIMARY KEY (`supplier_id`);
 
---
--- AUTO_INCREMENT for dumped tables
---
 
---
--- AUTO_INCREMENT for table `accounts`
---
 ALTER TABLE `accounts`
   MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
---
--- AUTO_INCREMENT for table `finished_goods`
---
+
 ALTER TABLE `finished_goods`
   MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
---
--- AUTO_INCREMENT for table `production`
---
+
 ALTER TABLE `production`
   MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
---
--- AUTO_INCREMENT for table `purchase_orders`
---
+
 ALTER TABLE `purchase_orders`
   MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
---
--- AUTO_INCREMENT for table `raw_material`
---
+
 ALTER TABLE `raw_material`
   MODIFY `mat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
---
--- AUTO_INCREMENT for table `reports`
---
+
 ALTER TABLE `reports`
   MODIFY `report_id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `supplier`
---
+
 ALTER TABLE `supplier`
   MODIFY `supplier_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
---
--- Constraints for dumped tables
---
 
---
--- Constraints for table `accounts`
---
 ALTER TABLE `accounts`
   ADD CONSTRAINT `accounts_ibfk_1` FOREIGN KEY (`mat_id`) REFERENCES `raw_material` (`mat_id`);
 
---
--- Constraints for table `production`
---
+
 ALTER TABLE `production`
   ADD CONSTRAINT `production_ibfk_1` FOREIGN KEY (`mat_id`) REFERENCES `raw_material` (`mat_id`);
 
---
--- Constraints for table `purchase_orders`
---
+
 ALTER TABLE `purchase_orders`
   ADD CONSTRAINT `purchase_orders_ibfk_1` FOREIGN KEY (`supplier_id`) REFERENCES `supplier` (`supplier_id`),
   ADD CONSTRAINT `purchase_orders_ibfk_2` FOREIGN KEY (`mat_id`) REFERENCES `raw_material` (`mat_id`);
 
---
--- Constraints for table `raw_material`
---
+
 ALTER TABLE `raw_material`
   ADD CONSTRAINT `raw_material_ibfk_1` FOREIGN KEY (`supplier_id`) REFERENCES `supplier` (`supplier_id`);
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
